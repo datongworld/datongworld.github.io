@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Anysee - example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+
+<body>
+
+
+
+    <script src="anysee/src/anysee.githack.js"></script>
+
+    <script>
+        var view = new ANYSEE(document.body, true);
+
+        view.loadFBXModel("boy","example/model/fbx/tinyboy.FBX");
+
+
+        var group = new ANYSEE.ModelGroup("ALLMODEL",new ANYSEE.Material("",0xffffff, 0.65, 0.8, 1));
+        view.setModelGroup([group]);
+
+        var run = new ANYSEE.ModelAnimationClip("Run",30,10,26);
+        var jump = new ANYSEE.ModelAnimationClip("Jump",30,140,170);
+        view.setModelAnimationClips(0,[run,jump]);
+
+        var evs = new ANYSEE.MeshButtonEvent("animator",1,0,"boy");
+
+        view.addMeshButton("Button1",true,new THREE.Vector3(0,70,0),new THREE.Vector3(50,140,50),[evs]);
+
+
+        view.init(false);
+    </script>
+
+
+
+</body>
+
+</html>

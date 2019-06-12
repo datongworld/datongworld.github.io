@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+	<title>DATONG - 特立独行的艺术家</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="DATONG, Unity, Game, App">
+	<meta name="keywords" content="DATONG, Unity, Game, App">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->   
+	<link href="../assets/img/page/logo.png" rel="shortcut icon"/>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../assets/css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="../assets/css/themify-icons.css"/>
+	<link rel="stylesheet" href="../assets/css/animate.min.css"/>
+	<link rel="stylesheet" href="../assets/css/magnific-popup.css"/>
+	<link rel="stylesheet" href="../assets/css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="../assets/css/style.css"/>
+
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	
+	<!-- Header section start -->
+	<header class="header-section">
+		<div class="container">
+			<div class="header-warp">
+				<!-- Site Logo -->
+				<a href="../index.html#home" class="site-logo">
+					<img src="../assets/img/page/logo.png" alt="">
+				</a>
+				<!-- Site Menu -->
+				<div class="responsive-switch"><i class="fa fa-bars"></i></div>
+				<nav class="site-menu">
+					<div class="sm-close"><i class="ti-close"></i></div>
+					<ul class="menu-list">
+						<li><a href="../index.html#home">主页</a></li>
+						<li><a href="../index.html#about">关于</a></li>
+						<li><a href="../index.html#resume">阅历</a></li>
+						<li><a href="../index.html#works">作品</a></li>
+						<li><a href="../index.html#contact">联系</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
+	
+
+	<!-- Portfolio details start -->
+	<section class="portfolio-details">
+		<div class="container">
+			<h2>Anysee - Demo</h2>
+			<p>点击身体看看</p>
+			<figure>
+				<div class="container" id="crv" style="min-width:200px; min-height:400px;"></div>
+			</figure>
+		</div>
+	</section>
+	<!-- Portfolio details end -->
+
+
+	<!-- Footer section start -->
+	<footer class="footer-section spad set-bg" data-setbg="../assets/img/page/footer-bg.svg">
+		<div class="container">
+			<!-- copyright -->
+			<p class="copyright">Copyright &copy; 2019 Datong</p>
+		</div>
+	</footer>
+	<!-- Footer section end -->
+
+
+	<!--====== Jquery & Javascripts files  ======-->
+	<script src="../assets/js/jquery-2.1.4.min.js"></script>
+	<script src="../assets/js/jquery.nav.min.js"></script>
+	<script src="../assets/js/isotope.pkgd.min.js"></script>
+	<script src="../assets/js/owl.carousel.min.js"></script>
+	<script src="../assets/js/magnific-popup.min.js"></script>
+	<script src="../assets/js/wow.min.js"></script>
+	<script src="../assets/js/scripts.js"></script>
+
+	<script src="../anysee/anysee/src/anysee.githack.js"></script>
+	
+	<script>
+		var crv = document.getElementById("crv");
+		var view = new ANYSEE(crv, true);
+		view.setApiPath("../anysee/anysee/");
+		view.loadFBXModel("chunli","../anysee/example/model/fbx/chunli.FBX");
+		var group = new ANYSEE.ModelGroup("ALLMODEL",new ANYSEE.Material("",0xffffff, 0.5, 0.9, 1));
+        view.setModelGroup([group]);
+
+        var idle = new ANYSEE.ModelAnimationClip("Idle",60,20,80);
+        var attack = new ANYSEE.ModelAnimationClip("attack",60,90,250);
+        view.setModelAnimationClips(0,[idle,attack]);
+
+        var evs = new ANYSEE.MeshButtonEvent("animator",1,0,"chunli");
+        view.addMeshButton("Button1",true,new THREE.Vector3(0,50,0),new THREE.Vector3(40,100,40),[evs]);
+
+        view.init(false);
+    </script>
+
+</body>
+
+
+</html>
